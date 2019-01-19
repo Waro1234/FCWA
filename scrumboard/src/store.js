@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-const SAVE_TOKEN = "scrumboard_save_4355662690"
+const SAVE_TOKEN = "scrumboard_save_4355662690";
 
 Vue.use(Vuex)
 
