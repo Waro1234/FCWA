@@ -2,9 +2,10 @@
     <div class="col-lg-3 col-sm-6 col-12">
         <h4>{{name}}</h4>
         <div class="row">
-            <div v-bind:class="{'col-12': true, noContainers: myStories.length === 0}">
-                <draggable v-model="myStories" :options="{group: 'myStories'}" @end="save">
-                    <user-story v-for="(story, index) in myStories" :key="index" :id="column + '' + index" :column="column + '' + index" :story="story"></user-story>
+            <div v-bind:class="{'col-12': true, noContainers: stories.length === 0}">
+                <span v-if="stories.length === 0">No stories here yet. Create one and drag it in here!</span>
+                <draggable v-model="stories" :options="{group: 'stories'}" @end="save" style="width: 100%;min-height: 200px;">
+                    <user-story v-for="(story, index) in stories" :key="index" :id="column + '' + index" :column="column + '' + index" :story="story"></user-story>
                 </draggable>
             </div>
         </div>
@@ -26,7 +27,7 @@
             }
         },
         computed: {
-            myStories: {
+            stories: {
                 get() {
                     return this.$store.getters.getBoardColumnStories(this.column);
                 },
@@ -56,7 +57,7 @@
         color: #fff;
     }
     .noContainers{
-        min-height: 250px;
-        background: #000;
+        /*min-height: 250px;*/
+        /*background: #000;*/
     }
 </style>
