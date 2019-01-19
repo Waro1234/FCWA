@@ -55,5 +55,6 @@ a {
   }
   .row{
     position: relative;
+    min-height: 120px;
   }
 </style>
