@@ -1,5 +1,8 @@
 # scrumboard
 
+## Install node
+First install [node](https://nodejs.org/en/)
+
 ## Project setup
 ```
 npm install
