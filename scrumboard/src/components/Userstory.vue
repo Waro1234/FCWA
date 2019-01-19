@@ -7,7 +7,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Special title treatment</h5>
                         <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <!--<a href="#" class="btn btn-warning">Go somewhere</a>-->
                     </div>
                 </div>
             </div>
@@ -32,7 +32,7 @@
 
 <style scoped>
     .card{
-        height: 280px;
+        height: 230px;
     }
     .card-flip {
         -webkit-perspective: 1000px;
@@ -48,7 +48,7 @@
     .front,
     .back {
         width: 100%;
-        height: 300px;
+        height: 250px;
     }
 
     .flip {

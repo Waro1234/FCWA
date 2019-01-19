@@ -7,6 +7,8 @@
             <column :name="'Doing'"></column>
             <column :name="'Testing'"></column>
             <column :name="'Done'"></column>
+            <floating-action-button></floating-action-button>
+            <add-story-modal></add-story-modal>
           </div>
         </div>
     </div>
@@ -15,13 +17,17 @@
 
 <script>
   import Column from '@/components/Column.vue'
+  import FloatingActionButton from '@/components/FloatingActionButton.vue'
+  import AddStoryModal from '@/components/Modals/AddStory.vue'
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
   },
   components: {
-    Column
+    Column,
+    FloatingActionButton,
+    AddStoryModal
   }
 }
 </script>
@@ -47,5 +53,8 @@ a {
   }
   .card-body{
     padding: 0 15px;
+  }
+  .row{
+    position: relative;
   }
 </style>
