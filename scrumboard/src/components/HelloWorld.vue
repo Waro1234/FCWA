@@ -3,7 +3,7 @@
       <div class="card">
         <div class="card-body">
           <div class="row">
-            <column v-for="(column, index) in this.$store.state.scrumboard" :key="index" :name="column.title" :stories="column.stories">
+            <column v-for="(column, index) in this.$store.state.scrumboard" :key="index" :name="column.title" :column="index">
               {{JSON.stringify(column)}}
             </column>
             <floating-action-button></floating-action-button>
@@ -16,7 +16,7 @@
 
 <script>
   import Column from '@/components/Column.vue'
-  import FloatingActionButton from '@/components/FloatingActionButton.vue'
+  import FloatingActionButton from '@/components/Buttons/FloatingActionButton.vue'
   import AddStoryModal from '@/components/Modals/AddStory.vue'
 export default {
   name: 'HelloWorld',

@@ -23,6 +23,11 @@ export default new Vuex.Store({
             }
         ]
     },
+    getters: {
+        getBoardColumnStories: (state) => (id) => {
+            return state.scrumboard[id].stories
+        }
+    },
     mutations: {
         addUserStory(state, data) {
             if (typeof state.scrumboard[data.column].stories === 'undefined' || state.scrumboard[data.column].stories === null || state.scrumboard[data.column].stories.length < 1) {
@@ -32,6 +37,10 @@ export default new Vuex.Store({
 
             localStorage.setItem(SAVE_TOKEN, JSON.stringify(state.scrumboard))
             // alert(JSON.stringify(data))
+        },
+        updateList(state, data) {
+            state.scrumboard[data.column].stories = data.stories;
+            localStorage.setItem(SAVE_TOKEN, JSON.stringify(state.scrumboard))
         }
     },
     actions: {

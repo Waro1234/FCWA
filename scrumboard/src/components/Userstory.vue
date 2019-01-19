@@ -43,7 +43,7 @@
 
 <style scoped>
     .card{
-        height: 230px;
+        height: 150px;
     }
     .card-flip {
         -webkit-perspective: 1000px;
@@ -68,7 +68,7 @@
     .front,
     .back {
         width: 100%;
-        height: 250px;
+        height: 170px;
     }
 
     .flip {
