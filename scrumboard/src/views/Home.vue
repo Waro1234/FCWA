@@ -19,7 +19,7 @@
   import FloatingActionButton from '@/components/Buttons/FloatingActionButton.vue'
   import AddStoryModal from '@/components/Modals/AddStory.vue'
   export default {
-    name: 'HelloWorld',
+    name: 'Home',
     props: {
       msg: String
     },
