@@ -3,10 +3,9 @@
       <div class="card">
         <div class="card-body">
           <div class="row">
-            <column :name="'Todo'"></column>
-            <column :name="'Doing'"></column>
-            <column :name="'Testing'"></column>
-            <column :name="'Done'"></column>
+            <column v-for="(column, index) in this.$store.state.scrumboard" :key="index" :name="column.title" :stories="column.stories">
+              {{JSON.stringify(column)}}
+            </column>
             <floating-action-button></floating-action-button>
             <add-story-modal></add-story-modal>
           </div>

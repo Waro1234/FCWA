@@ -1,5 +1,5 @@
 <template>
-    <button type="button" class="fab" data-toggle="modal" data-target="#exampleModal">+</button>
+    <button type="button" class="fab" data-toggle="modal" data-target="#addStoryModal">+</button>
 </template>
 
 <script>

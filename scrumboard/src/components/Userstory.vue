@@ -1,22 +1,21 @@
 <template>
-    <div class="card-flip">
+    <div v-bind:class="{'card-flip': true, 'hoverable': story.howToDemo.length > 0}" class="card-flip" v-on:click="flipMe">
         <div class="flip">
             <div class="front">
                 <!-- front content -->
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <h5 class="card-title">{{story.number}}. {{story.description}}</h5>
                         <!--<a href="#" class="btn btn-warning">Go somewhere</a>-->
                     </div>
                 </div>
             </div>
-            <div class="back">
+            <div class="back" v-if="story.howToDemo.length > 0">
                 <!-- back content -->
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">How to Demo</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <p class="card-text">{{story.howToDemo}}</p>
                     </div>
                 </div>
             </div>
@@ -26,7 +25,19 @@
 
 <script>
     export default {
-        name: "Userstory"
+        name: "Userstory",
+        methods : {
+            flipMe () {
+                if (this.story.howToDemo.length > 0) {
+                    if (document.getElementById(this.column).classList.contains('flipped')) {
+                        document.getElementById(this.column).classList.remove('flipped');
+                    } else {
+                        document.getElementById(this.column).classList.add('flipped');
+                    }
+                }
+            }
+        },
+        props: ['story', 'column']
     }
 </script>
 
@@ -39,7 +50,16 @@
         perspective: 1000px;
         color: #2c3e50;
     }
-    .card-flip:hover .flip, .card-flip.hover .flip {
+    .card-flip.hoverable{
+        cursor: pointer;
+    }
+    .card-flip.hoverable .card {
+        transition: 250ms;
+    }
+    .card-flip.hoverable:hover .card{
+        background: #eee;
+    }
+    .card-flip.flipped .flip {
         -webkit-transform: rotateY(180deg);
         transform: rotateY(180deg);
     }
