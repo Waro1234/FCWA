@@ -31,4 +31,11 @@
     .fab:hover{
         background:#e0a800;
     }
+    @media screen and (max-width: 634px) {
+        .fab{
+            position: fixed;
+            right: 16px;
+            bottom: 16px;
+        }
+    }
 </style>
