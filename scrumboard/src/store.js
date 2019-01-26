@@ -26,6 +26,9 @@ export default new Vuex.Store({
     getters: {
         getBoardColumnStories: (state) => (id) => {
             return state.scrumboard[id].stories
+        },
+        getBoard: (state) => {
+            return state.scrumboard
         }
     },
     mutations: {
@@ -36,7 +39,6 @@ export default new Vuex.Store({
             state.scrumboard[data.column].stories.push(data.data);
 
             localStorage.setItem(SAVE_TOKEN, JSON.stringify(state.scrumboard))
-            // alert(JSON.stringify(data))
         },
         updateList(state, data) {
             state.scrumboard[data.column].stories = data.stories;

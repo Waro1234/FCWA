@@ -9,10 +9,6 @@
                 </draggable>
             </div>
         </div>
-        <!--<user-story></user-story>-->
-        <!--<user-story></user-story>-->
-        <!--<user-story></user-story>-->
-        <!--<user-story></user-story>-->
     </div>
 </template>
 

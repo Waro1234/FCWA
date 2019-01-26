@@ -3,7 +3,7 @@
     <div class="card">
       <div class="card-body">
         <div class="row">
-          <column v-for="(column, index) in this.$store.state.scrumboard" :key="index" :name="column.title" :column="index">
+          <column v-for="(column, index) in boardColumns" :key="index" :name="column.title" :column="index">
             {{JSON.stringify(column)}}
           </column>
           <floating-action-button></floating-action-button>
@@ -22,6 +22,13 @@
     name: 'Home',
     props: {
       msg: String
+    },
+    computed: {
+      boardColumns: {
+        get() {
+          return this.$store.getters.getBoard
+        }
+      }
     },
     components: {
       Column,

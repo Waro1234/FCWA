@@ -77,7 +77,6 @@
 
                 if (this.errors.numberError.length === 0 && this.errors.descriptionError.length === 0) {
                     $("#addStoryModal").modal('hide');
-                    console.log(JSON.stringify({column: this.column, data: this.form}))
                     this.$store.dispatch('addUserStory', {column: this.column, data: this.form})
                 }
             }
