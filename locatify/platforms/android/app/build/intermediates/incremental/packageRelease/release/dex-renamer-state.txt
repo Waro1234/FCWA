@@ -1,0 +1,4 @@
+#Sat Jan 19 22:25:34 CET 2019
+base.0=D\:\\School\\jaar 4\\fcwa\\locatify\\platforms\\android\\app\\build\\intermediates\\transforms\\dex\\release\\0
+path.0=classes.dex
+renamed.0=classes.dex

@@ -1,0 +1,4 @@
+#Sat Jan 26 16:23:13 CET 2019
+base.0=E\:\\Jaar 4\\Verdieping\\FCWA\\locatify\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+path.0=classes.dex
+renamed.0=classes.dex
