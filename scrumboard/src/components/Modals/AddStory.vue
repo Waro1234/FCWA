@@ -20,11 +20,19 @@
                             </small>
                         </div>
                         <div class="form-group">
-                            <label for="userStoryDescription">Description</label>
-                            <textarea class="form-control" v-model="form.description"
-                                      id="userStoryDescription"></textarea>
-                            <small class="form-text text-danger" v-if="errors.descriptionError.length > 0">
-                                {{errors.descriptionError}}
+                            <label for="pointsNumber">Points</label>
+                            <input type="number" class="form-control" v-model="form.points" value=""
+                                   id="pointsNumber">
+                            <small class="form-text text-danger" v-if="errors.pointsError.length > 0">
+                                {{errors.pointsError}}
+                            </small>
+                        </div>
+                        <div class="form-group">
+                            <label for="userStorytitle">Title</label>
+                            <input type="text" class="form-control" v-model="form.title" value=""
+                                   id="userStorytitle">
+                            <small class="form-text text-danger" v-if="errors.titleError.length > 0">
+                                {{errors.titleError}}
                             </small>
                         </div>
                         <div class="form-group">
@@ -53,12 +61,14 @@
                 column: 0,
                 form: {
                     number: null,
-                    description: '',
-                    howToDemo: ''
+                    title: '',
+                    howToDemo: '',
+                    points: null
                 },
                 errors: {
                     numberError: '',
-                    descriptionError: ''
+                    pointsError: '',
+                    titleError: ''
                 }
             }
         },
@@ -69,15 +79,26 @@
                 } else {
                     this.errors.numberError = ''
                 }
-                if (this.form.description.length <= 0) {
-                    this.errors.descriptionError = 'Description needs to be longer than 0 characters'
+                if (Number.isNaN(this.form.points) || this.form.points <= 0) {
+                    this.errors.pointsError = 'This has to be a valid number above 0'
                 } else {
-                    this.errors.descriptionError = ''
+                    this.errors.pointsError = ''
+                }
+                if (this.form.title.length <= 0) {
+                    this.errors.titleError = 'title needs to be longer than 0 characters'
+                } else {
+                    this.errors.titleError = ''
                 }
 
-                if (this.errors.numberError.length === 0 && this.errors.descriptionError.length === 0) {
+                if (this.errors.numberError.length === 0 && this.errors.pointsError.length === 0 && this.errors.titleError.length === 0) {
                     $("#addStoryModal").modal('hide');
-                    this.$store.dispatch('addUserStory', {column: this.column, data: this.form})
+                    this.$store.commit('addUserStory', {column: this.column, data: this.form})
+                    this.form = {
+                        number: null,
+                        title: '',
+                        howToDemo: '',
+                        points: null
+                    }
                 }
             }
         }

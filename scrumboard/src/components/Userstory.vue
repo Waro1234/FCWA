@@ -1,21 +1,23 @@
 <template>
-    <div v-bind:class="{'card-flip': true, 'hoverable': story.howToDemo.length > 0}" class="card-flip" v-on:click="flipMe">
+    <div class="card-flip" v-on:click="flipMe">
         <div class="flip">
             <div class="front">
                 <!-- front content -->
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">{{story.number}}. {{story.description}}</h5>
+                        <h5 class="card-title"><b>{{story.number}}. {{story.title}}</b></h5>
+                        <p class="card-text">{{story.points}} points</p>
                         <!--<a href="#" class="btn btn-warning">Go somewhere</a>-->
                     </div>
                 </div>
             </div>
-            <div class="back" v-if="story.howToDemo.length > 0">
+            <div class="back">
                 <!-- back content -->
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">How to Demo</h5>
-                        <p class="card-text">{{story.howToDemo}}</p>
+                        <h5 class="card-title"><b>How to Demo</b></h5>
+                        <p class="card-text" v-if="story.howToDemo.length > 0">{{story.howToDemo}}</p>
+                        <p class="card-text" v-if="story.howToDemo.length === 0">Sorry this story has no how to demo.</p>
                     </div>
                 </div>
             </div>
@@ -28,12 +30,10 @@
         name: "Userstory",
         methods : {
             flipMe () {
-                if (this.story.howToDemo.length > 0) {
-                    if (document.getElementById(this.column).classList.contains('flipped')) {
-                        document.getElementById(this.column).classList.remove('flipped');
-                    } else {
-                        document.getElementById(this.column).classList.add('flipped');
-                    }
+                if (document.getElementById(this.column).classList.contains('flipped')) {
+                    document.getElementById(this.column).classList.remove('flipped');
+                } else {
+                    document.getElementById(this.column).classList.add('flipped');
                 }
             }
         },
@@ -49,14 +49,12 @@
         -webkit-perspective: 1000px;
         perspective: 1000px;
         color: #2c3e50;
-    }
-    .card-flip.hoverable{
         cursor: pointer;
     }
-    .card-flip.hoverable .card {
+    .card-flip .card {
         transition: 250ms;
     }
-    .card-flip.hoverable:hover .card{
+    .card-flip:hover .card{
         background: #eee;
     }
     .card-flip.flipped .flip {

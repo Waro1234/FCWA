@@ -33,7 +33,9 @@ export default new Vuex.Store({
     },
     mutations: {
         addUserStory(state, data) {
-            if (typeof state.scrumboard[data.column].stories === 'undefined' || state.scrumboard[data.column].stories === null || state.scrumboard[data.column].stories.length < 1) {
+            if (typeof state.scrumboard[data.column].stories === 'undefined'
+                || state.scrumboard[data.column].stories === null
+                || state.scrumboard[data.column].stories.length < 1) {
                 state.scrumboard[data.column].stories = [];
             }
             state.scrumboard[data.column].stories.push(data.data);
@@ -43,11 +45,6 @@ export default new Vuex.Store({
         updateList(state, data) {
             state.scrumboard[data.column].stories = data.stories;
             localStorage.setItem(SAVE_TOKEN, JSON.stringify(state.scrumboard))
-        }
-    },
-    actions: {
-        addUserStory(context, data) {
-            this.commit('addUserStory', data)
         }
     }
 })

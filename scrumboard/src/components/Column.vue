@@ -4,8 +4,14 @@
         <div class="row">
             <div v-bind:class="{'col-12': true, noContainers: stories.length === 0}">
                 <span v-if="stories.length === 0">No stories here yet. Create one and drag it in here!</span>
-                <draggable v-model="stories" :options="{group: 'stories'}" @end="save" style="width: 100%;min-height: 200px;">
-                    <user-story v-for="(story, index) in stories" :key="index" :id="column + '' + index" :column="column + '' + index" :story="story"></user-story>
+                <draggable v-model="stories"
+                           :options="{group: 'stories'}"
+                           style="width: 100%;min-height: 200px;">
+                    <user-story v-for="(story, index) in stories"
+                                :key="index"
+                                :id="column + '' + index"
+                                :column="column + '' + index"
+                                :story="story"></user-story>
                 </draggable>
             </div>
         </div>
@@ -17,11 +23,6 @@
     import UserStory from '@/components/Userstory.vue'
     export default {
         name: "Column",
-        methods: {
-            save () {
-                this.$store.dispatch('save')
-            }
-        },
         computed: {
             stories: {
                 get() {
