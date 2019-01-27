@@ -1,4 +1,4 @@
- Places you've went app Framework7
+# Places you've went app Framework7
 This app allows you to make a list of places you have went, complete with a location and photo!
 
 ## Getting Started
