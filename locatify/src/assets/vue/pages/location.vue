@@ -91,38 +91,6 @@
                     }
                 )
             },
-            gpsRetry(gpsOptions) {
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(this.gpsSuccess, this.gpsError, gpsOptions);
-                } else {
-                    this.geoLocationFailed = true
-                }
-            },
-            gpsError(error, gpsOptions) {
-                if (this.gpsRetries !== 0) {
-                    this.gpsRetries--;
-                    this.gpsRetry(gpsOptions);
-                } else {
-                    this.geoLocationFailed = true
-                }
-            },
-            gpsSuccess(position) {
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition((position) => {
-                            this.$f7.request.get("http://dev.virtualearth.net/REST/v1/Locations/"
-                                + position.coords.latitude + "," + position.coords.longitude +
-                                "?key=Akm4ylRdOiWjoGte1-zpg7mgOO6X7MPNuqYtRWvOo7DYmsWQ0CjqAbOR-WLq1yZb", function (data) {
-                                console.log(data);
-                                let formattedAddress = JSON.parse(data)["resourceSets"][0]["resources"][0]["address"]["formattedAddress"];
-                                document.getElementById("location").value = formattedAddress;
-                            });
-                        },
-                        function (err) {
-                            console.log(err)
-                        })
-                }
-
-            },
             getMyLocation() {
                 this.geoLocationFailed = false
                 let gpsOptions = {maximumAge: 300000, timeout: 10000, enableHighAccuracy: true};

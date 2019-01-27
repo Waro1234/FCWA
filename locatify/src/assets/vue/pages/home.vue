@@ -73,12 +73,11 @@
                         subject: "Locatify location",
                         chooserTitle: "Share to"
                     },
-                    function (res) {
-                        console.log("Share completed? " + res.completed); // On Android apps mostly return false even while it's true
-                        console.log("Shared to app: " + res.app); // On Android result.app since plugin version 5.4.0 this is no longer empty. On iOS it's empty when sharing is cancelled (result.completed=false)
+                    function () {
+                        alert("Successfully shared your location");
                     },
-                    function (msg) {
-                        console.error("Sharing failed: " + msg);
+                    function () {
+                        alert("Failed to share your location");
                     }
                 )
             },
